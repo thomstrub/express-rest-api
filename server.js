@@ -10,8 +10,13 @@ app.get('/home', (req, res) => {
 })
 
 app.get('/json', (req, res) => {
-    res.json({"message": "hello JSON",
-              "this is also": {"json": "more"}
+    let message = process.env.MESSAGE_STYLE == 'uppercase'
+        ? 
+            'HELLO JSON'
+        :
+            'Hello JSON'
+    res.json({
+        "message": message
     });
 });
 
