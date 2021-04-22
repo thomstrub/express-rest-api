@@ -7,7 +7,7 @@ app.get('/home', (req, res) => {
 })
 
 app.get('/', function(req, res) {
-    res.send('<h1>Hello World!</h1>');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.listen(3000, function(){
