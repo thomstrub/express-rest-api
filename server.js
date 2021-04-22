@@ -2,6 +2,12 @@ const express = require('express');
 
 const app = express();
 
+console.log(process.env.MESSAGE_STYLE)
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.MESSAGE_STYLE, "<----")
+
+
 // app.use(express.static(__dirname + "/public"))
 app.use("/public", express.static(__dirname + "/public"));
 
@@ -14,7 +20,7 @@ app.get('/json', (req, res) => {
         ? 
             'HELLO JSON'
         :
-            'Hello JSON'
+            process.env
     res.json({
         "message": message
     });
