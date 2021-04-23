@@ -30,6 +30,13 @@ app.get('/:word/echo', (req, res) => {
     })
 })
 
+app.get('/name', (req, res) => {
+    console.log(req.query.name, "req.query <-------");
+    res.json({
+        "name": `${req.query.first} ${req.query.last}`
+    })
+})
+
 // app.use(express.static(__dirname + "/public"))
 app.use("/public", express.static(__dirname + "/public"));
 
