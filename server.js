@@ -41,8 +41,13 @@ app.get('/name', (req, res) => {
     })
 })
 
+// receives form data
+
 app.post('/name', (req, res) => {
     console.log(req.body, "req.body <---------")
+    res.json({
+        "name": `${req.body.first} ${req.body.last}`
+    })
 })
 
 // app.use(express.static(__dirname + "/public"))
