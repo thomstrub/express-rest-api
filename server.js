@@ -22,6 +22,14 @@ app.get('/now', (req, res, next) => {
     res.json({"time": req.time});
 })
 
+// Route Parameter Input Echo Server
+app.get('/:word/echo', (req, res) => {
+    console.log(req.params, "params <------")
+    res.json({
+        "echo": req.params.word
+    })
+})
+
 // app.use(express.static(__dirname + "/public"))
 app.use("/public", express.static(__dirname + "/public"));
 
