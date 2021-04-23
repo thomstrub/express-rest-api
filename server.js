@@ -4,8 +4,12 @@ const app = express();
 
 console.log(process.env.MESSAGE_STYLE)
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 dotenv.config();
 console.log(process.env.MESSAGE_STYLE, "<----")
+
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 // logger
 app.use('/', (req, res, next) => {
@@ -35,6 +39,10 @@ app.get('/name', (req, res) => {
     res.json({
         "name": `${req.query.first} ${req.query.last}`
     })
+})
+
+app.post('/name', (req, res) => {
+    console.log(req.body, "req.body <---------")
 })
 
 // app.use(express.static(__dirname + "/public"))
